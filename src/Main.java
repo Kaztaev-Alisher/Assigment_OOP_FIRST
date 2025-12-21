@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main() {
         book bok1 = new book("Clean code", "Robert Kan", 2008);
