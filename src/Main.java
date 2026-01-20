@@ -1,49 +1,23 @@
-import java.util.Scanner;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        Library lib = new Library("AITU Library");
+    public static void main() throws Exception {
 
-        while (true) {
-            System.out.println("\n1. Add book");
-            System.out.println("2. Check book");
-            System.out.println("3. Show all books");
-            System.out.println("0. Exit");
-            System.out.print("Choose option: ");
+        BookDAO bookDAO = new BookDAO();
+//        Book book = new Book("Clean Code" , "Robert Martin" , 2008 );
+//        bookDAO.addBook(book);
+//        book = new Book("C++" , "Kahn" , 2007);
+//        bookDAO.addBook(book);
+//        bookDAO.sortBooks("year" , "");
 
-            int choice = sc.nextInt();
-            sc.nextLine();
+//        System.out.println("Books in database:");
+//        bookDAO.getAllBooks();
 
-            if (choice == 1) {
-                System.out.print("Title: ");
-                String title = sc.nextLine();
+//        bookDAO.updateBook(3, "Clean Code (Updated)");
+//        bookDAO.sort("inc");
+//        bookDAO.deleteBook(7);
+//        bookDAO.addColumn("pages" , "int");
 
-                System.out.print("Author: ");
-                String author = sc.nextLine();
-
-                System.out.print("Year: ");
-                int year = sc.nextInt();
-                sc.nextLine();
-
-                lib.addBook(new Book(title, author, year));
-                System.out.println("Book added.");
-
-            } else if (choice == 2) {
-                System.out.print("Enter title: ");
-                String title = sc.nextLine();
-                Book b = lib.findBook(title);
-                System.out.println(b == null ? "Book not found" : "Found: " + b);
-            } else if (choice == 3) {
-                System.out.println("All books in library:");
-                lib.show();
-            } else if (choice == 0) {
-                System.out.println("Program finished.");
-                break;
-            } else {
-                System.out.println("Wrong option.");
-            }
-        }
     }
 }
